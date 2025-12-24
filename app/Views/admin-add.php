@@ -11,4 +11,11 @@
     <td></td><td><input type="submit" value="Save" class="btn" /><input type="button" value="Back" onclick="history.back()" class="btn" /></td>
 </tr>
 </table>
+<?php if (session()->getFlashdata('errors')): ?>
+    <div class="error">
+        <?php foreach (session()->getFlashdata('errors') as $error): ?>
+            - <?= esc($error) ?><br/>
+        <?php endforeach ?>
+    </div>
+<?php endif ?>
 </form>

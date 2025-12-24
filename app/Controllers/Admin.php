@@ -22,11 +22,11 @@ class Admin extends BaseController
         $adminModel = new AdminModel();
 
         $rules = [
-            'username' => 'required|min_length[3]|max_length[50]',
+            'username' => 'required|min_length[3]|max_length[50]|is_unique[admin.username]',
             'password' => 'required|min_length[5]|max_length[30]',
         ];
 
-        if($this->validate($rules))
+        if(!$this->validate($rules))
         {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
