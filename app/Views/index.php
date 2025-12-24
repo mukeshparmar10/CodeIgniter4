@@ -20,6 +20,9 @@
     <td></td><td><input type="submit" value="Login" class="btn" /></td>
 </tr>
 </table>
+<?php if (session()->getFlashdata('error')): ?>
+<div class="error"><?=session()->getFlashdata('error');?></div>
+<?php endif ?>
 </form>
 </body>
 </html>

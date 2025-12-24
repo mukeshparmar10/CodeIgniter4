@@ -32,3 +32,8 @@ a{
 h1{
 	color: #00f;
 }
+
+.error{
+	text-align: center;
+	color: #f00;
+}

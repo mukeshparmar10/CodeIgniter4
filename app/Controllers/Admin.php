@@ -120,7 +120,7 @@ class Admin extends BaseController
             return redirect()->to('/student');
         }
 
-        return redirect()->back()->with('error', 'Invalid login credentials');
+        return redirect()->to(base_url('/'))->with('error', 'Invalid login credentials');
     }
 
     public function logout()
