@@ -108,5 +108,17 @@ class Student extends BaseController
             print_r($email->printDebugger());
         }
     }
+
+    public function callApi()
+    {
+        $client = \Config\Services::curlrequest();
+        $response = $client->get('https://jsonplaceholder.typicode.com/todos/1');
+
+        $body = $response->getBody();
+
+        $data = json_decode($body, true);
+
+        return $this->response->setJSON($data);
+    }
     
 }

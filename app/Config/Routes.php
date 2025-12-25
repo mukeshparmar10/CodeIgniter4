@@ -16,7 +16,7 @@ $routes->get('/student/edit/(:num)','Student::editStudent/$1',['filter' => 'auth
 $routes->post('/student/update','Student::updateStudent',['filter' => 'auth']);
 $routes->get('/student/delete/(:num)','Student::deleteStudent/$1',['filter' => 'auth']);
 $routes->get('email','Student::email',['filter' => 'auth']);
-
+$routes->get('api','Student::callApi',['filter' => 'auth']);
 
 $routes->get('/admin', 'Admin::index',['filter' => 'auth']);
 $routes->get('/admin/add','Admin::addAdmin',['filter' => 'auth']);
