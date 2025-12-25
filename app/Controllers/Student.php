@@ -120,5 +120,25 @@ class Student extends BaseController
 
         return $this->response->setJSON($data);
     }
-    
+
+    public function createData()
+    {
+        $client = \Config\Services::curlrequest();
+
+        $api_url = 'http://localhost/ci4/student/save';
+        $post_data = [
+            'name' => 'Test Name',
+            'address' => 'Test Address'
+        ];
+
+        $response = $client->post($api_url, [
+            'json' => $post_data
+        ]);
+
+        echo "<pre>";
+        print_r($response);
+        echo "</pre>";
+
+        // return $this->response->setStatusCode($response->getStatusCode())->setBody($response->getBody());
+    }    
 }
