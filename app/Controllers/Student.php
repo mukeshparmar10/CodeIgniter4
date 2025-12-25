@@ -93,4 +93,20 @@ class Student extends BaseController
 
         return redirect('/student');
     }
+
+    public function email()
+    {
+        $email = \Config\Services::email();
+        
+        $email->setTo('mukeshparmar12345@gmail.com');
+        $email->setSubject('Test');
+        $email->setMessage('This is test email! Please ignore it!');
+
+        if ($email->send()) {
+            echo 'Email sent successfully';
+        } else {
+            print_r($email->printDebugger());
+        }
+    }
+    
 }
