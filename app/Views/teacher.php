@@ -7,7 +7,7 @@ foreach($teacher as $tea)
 {
 ?>
 <tr>
-<td><?=$tea['id'];?></td>
+<td align="center"><?=$tea['id'];?></td>
 <td><?=$tea['full_name'];?></td>
 <td><?=$tea['address'];?></td>
 <th><a href="<?=base_url();?>teacher/edit/<?=$tea['id'];?>">Edit</a><a href="<?=base_url();?>teacher/delete/<?=$tea['id'];?>">Delete</a></th>

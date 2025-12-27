@@ -5,11 +5,19 @@ use App\Models\AdminModel;
 
 class Admin extends BaseController
 {
+    public function __construct()
+    {
+        if(session()->get('user_name')!="admin")
+        {            
+            echo '<script>history.back();</script>';
+        }        
+    }
+
     public function index(): string
     {
         $adminModel = new AdminModel();
         $admin = $adminModel->findAll();
-        return view('header',['page'=>'admin']) . view('admin',['admin'=>$admin]) . view('footer');
+            return view('header',['page'=>'admin']) . view('admin',['admin'=>$admin]) . view('footer');
     }
 
     public function addAdmin():string
@@ -92,40 +100,5 @@ class Admin extends BaseController
         $adminModel->delete($id);
 
         return redirect()->to(base_url('admin'));
-    }
-
-    public function login()
-    {
-        return view('index');
-    }
-
-    public function loginProcess()
-    {
-        $session = session();
-        $model   = new AdminModel();
-
-        $data = array(
-            'username'=> $this->request->getPost('username'),
-            'password' => $this->request->getPost('password')
-        );
-
-        $admin = $model->where($data)->first();
-
-        if ($admin) {
-            $session->set([
-                'user_id'   => $admin['id'],
-                'user_name' => $admin['username'],
-                'logged_in' => true,
-            ]);
-            return redirect()->to(base_url('/dashboard'));
-        }
-
-        return redirect()->to(base_url('/'))->with('error', 'Invalid login credentials');
-    }
-
-    public function logout()
-    {
-        session()->destroy();
-        return redirect()->to(base_url('/'));
-    }
+    }    
 }

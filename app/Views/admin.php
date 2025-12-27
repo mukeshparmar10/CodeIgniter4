@@ -6,7 +6,7 @@
 foreach($admin as $ad)
 {
 ?>
-<tr>
+<tr align="center">
 <td><?=$ad['id'];?></td>
 <td><?=$ad['username'];?></td>
 <td><?=$ad['password'];?></td>

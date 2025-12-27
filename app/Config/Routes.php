@@ -5,9 +5,9 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Admin::login');
-$routes->post('/login', 'Admin::loginProcess');
-$routes->get('/logout', 'Admin::logout');
+$routes->get('/', 'Login::login');
+$routes->post('/login', 'login::loginProcess');
+$routes->get('/logout', 'login::logout');
 
 $routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
 

@@ -7,7 +7,7 @@ foreach($student as $std)
 {
 ?>
 <tr>
-<td><?=$std['id'];?></td>
+<td align="center"><?=$std['id'];?></td>
 <td><?=$std['full_name'];?></td>
 <td><?=$std['address'];?></td>
 <th><a href="<?=base_url();?>student/edit/<?=$std['id'];?>">Edit</a><a href="<?=base_url();?>student/delete/<?=$std['id'];?>">Delete</a></th>

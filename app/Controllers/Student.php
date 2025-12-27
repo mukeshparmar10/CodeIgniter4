@@ -141,5 +141,5 @@ class Student extends BaseController
         echo "</pre>";
 
         // return $this->response->setStatusCode($response->getStatusCode())->setBody($response->getBody());
-    }    
+    }
 }
