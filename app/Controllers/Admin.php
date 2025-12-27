@@ -117,7 +117,7 @@ class Admin extends BaseController
                 'user_name' => $admin['username'],
                 'logged_in' => true,
             ]);
-            return redirect()->to(base_url('/student'));
+            return redirect()->to(base_url('/dashboard'));
         }
 
         return redirect()->to(base_url('/'))->with('error', 'Invalid login credentials');

@@ -9,6 +9,7 @@
 <body>
 <h1 align="center">Student Information System</h1>
 <div class="navigation">
+    <a href="<?=base_url();?>dashboard">Dashboard</a>
     <a href="<?=base_url();?>student">List Student</a>
     <a href="<?=base_url();?>student/add">Add Student</a>
     <a href="<?=base_url();?>admin">List Admin</a>

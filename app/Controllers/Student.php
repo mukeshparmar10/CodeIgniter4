@@ -9,6 +9,7 @@ class Student extends BaseController
     {
         $studentModel = new StudentModel();
         $student = $studentModel->findAll();
+        
         return view('header') . view('student',['student'=>$student]) . view('footer');
     }
 

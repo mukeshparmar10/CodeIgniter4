@@ -9,6 +9,8 @@ $routes->get('/', 'Admin::login');
 $routes->post('/login', 'Admin::loginProcess');
 $routes->get('/logout', 'Admin::logout');
 
+$routes->get('/dashboard', 'Dashboard::index',['filter' => 'auth']);
+
 $routes->get('/student', 'Student::index',['filter' => 'auth']);
 $routes->get('/student/add','Student::addStudent',['filter' => 'auth']);
 $routes->post('/student/save','Student::saveStudent',['filter' => 'auth']);
