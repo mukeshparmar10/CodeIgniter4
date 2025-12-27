@@ -9,12 +9,12 @@ class Admin extends BaseController
     {
         $adminModel = new AdminModel();
         $admin = $adminModel->findAll();
-        return view('header') . view('admin',['admin'=>$admin]) . view('footer');
+        return view('header',['page'=>'admin']) . view('admin',['admin'=>$admin]) . view('footer');
     }
 
     public function addAdmin():string
     {
-        return view('header') . view('admin-add') . view('footer');
+        return view('header',['page'=>'admin']) . view('admin-add') . view('footer');
     }
 
     public function saveAdmin()
@@ -52,7 +52,7 @@ class Admin extends BaseController
 
         $admin = $adminModel->find($id);
 
-        return view('header') . view('admin-edit',['admin'=>$admin]) . view('footer');
+        return view('header',['page'=>'admin']) . view('admin-edit',['admin'=>$admin]) . view('footer');
     }
 
     public function updateAdmin()

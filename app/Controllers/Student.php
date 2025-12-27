@@ -9,13 +9,13 @@ class Student extends BaseController
     {
         $studentModel = new StudentModel();
         $student = $studentModel->findAll();
-        
-        return view('header') . view('student',['student'=>$student]) . view('footer');
+
+        return view('header',['page'=>'student']) . view('student',['student'=>$student]) . view('footer');
     }
 
     public function addStudent():string
     {
-        return view('header') . view('student-add') . view('footer');
+        return view('header',['page'=>'student']) . view('student-add') . view('footer');
     }
 
     public function saveStudent()
@@ -44,7 +44,7 @@ class Student extends BaseController
             echo "Student does not add. Please try again letter.";
         }
 
-        return redirect('/student');
+        return redirect()->to(base_url('/student'));
     }
 
     public function editStudent($id)
@@ -53,7 +53,7 @@ class Student extends BaseController
 
         $student = $studentModel->find($id);
 
-        return view('header') . view('student-edit',['student'=>$student]) . view('footer');
+        return view('header',['page'=>'student']) . view('student-edit',['student'=>$student]) . view('footer');
     }
 
     public function updateStudent()
@@ -83,7 +83,7 @@ class Student extends BaseController
             echo "Student does not update. Please try again letter.";
         }
 
-        return redirect('/student');
+        return redirect()->to(base_url('/student'));
     }
 
     public function deleteStudent($id)
@@ -92,7 +92,7 @@ class Student extends BaseController
 
         $studentModel->delete($id);
 
-        return redirect('/student');
+        return redirect()->to(base_url('/student'));
     }
 
     public function email()

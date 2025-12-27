@@ -16,6 +16,6 @@ class Dashboard extends BaseController
 
         $username = session()->get('user_name');
 
-        return view('header') . view('dashboard',['student'=>count($student),'admin'=>count($admin),'username'=>$username]) . view('footer');
+        return view('header',['page'=>'dashboard']) . view('dashboard',['student'=>count($student),'admin'=>count($admin),'username'=>$username]) . view('footer');
     }
 }
